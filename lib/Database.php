@@ -87,6 +87,8 @@ class Database {
 
         $statement->execute();
 
+        $statement->debugDumpParams();
+
         return $statement->errorInfo();
     }
 }
