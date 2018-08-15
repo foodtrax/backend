@@ -85,6 +85,8 @@ class Database {
             $statement->bindParam($key, $value);
         }
 
+        $statement->execute();
+
         return $statement->errorInfo();
     }
 }
