@@ -43,10 +43,10 @@ file_put_contents('/tmp/test2', print_r($results, true));
 
 $insertResult = $database->update('INSERT INTO `truck_locations` (`truck_id`, `lat`, `long`, `date`) VALUES (:truckId, :lat, :lon, :datetime)',
     [
-        'truckId' => $truckId,
-        'lat' => $lat,
-        'lon' => $lon,
-        'datetime' => time()
+        ':truckId' => $truckId,
+        ':lat' => $lat,
+        ':lon' => $lon,
+        ':datetime' => $truckData['published_at']
     ]
 );
 
