@@ -25,7 +25,7 @@ $database->connect();
 
 // Get the user's hashed password from the database
 $results = $database->query(
-    'SELECT `password` FROM `users` WHERE `username` = :username',
+    'SELECT `id`,`password` FROM `users` WHERE `username` = :username',
     [':username' => $username]
 );
 
@@ -39,7 +39,7 @@ $dbPassword = $results[0]['password'];
 
 // If the passwords match, set the session
 if (password_verify($password, $dbPassword)) {
-    $_SESSION['name'] = $username;
+    $_SESSION['id'] = $results[0]['id'];
     echo json_encode(['result' => true]);
 } else {
     echo json_encode(['result' => false]);
