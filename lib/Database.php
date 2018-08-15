@@ -81,11 +81,7 @@ class Database {
     {
         $statement = $this->databaseConnection->prepare($query);
 
-        foreach ($parameters as $key => $value) {
-            $statement->bindParam($key, $value);
-        }
-
-        $statement->execute();
+        $statement->execute($parameters);
 
         $statement->debugDumpParams();
 
