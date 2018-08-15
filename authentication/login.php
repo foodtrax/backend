@@ -41,6 +41,7 @@ if (count($results) === 0) {
 $dbPassword = $results[0]['password'];
 
 // If the passwords match, set the session
+echo $dbPassword . "..." . $password;
 if ($dbPassword === $password) {
     $_SESSION['name'] = $username;
     echo json_encode(['result' => true]);
