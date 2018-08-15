@@ -27,7 +27,7 @@ $database = new Database(
 
 $database->connect();
 
-$results = $database->query('SELECT * FROM `particle_to_truck` WHERE `particle_id` = ":particle"',
+$results = $database->query('SELECT * FROM `particle_to_truck` WHERE `particle_id` = :particle',
     [
         'particle' => $particleId
     ]
