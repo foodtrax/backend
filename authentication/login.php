@@ -1,5 +1,6 @@
 <?php
 include '../lib/Database.php';
+include '../lib/Secrets.php';
 
 session_start();
 
