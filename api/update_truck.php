@@ -34,7 +34,7 @@ $results = $database->query('SELECT * FROM `particle_to_truck` WHERE `particle_i
 );
 
 if (count($results) == 0) {
-    die(json_encode(['result' => false]));
+    die(json_encode(['result' => false, 'result_count' => count($results)]));
 }
 
 $truckId = $results[0]['truck_id'];
