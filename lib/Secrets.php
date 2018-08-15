@@ -14,7 +14,7 @@ class Secrets
      */
     public function readSecrets()
     {
-        $contents = file_get_contents('SECRETS');
+        $contents = file_get_contents('../SECRETS');
         $secrets = [];
         foreach (explode(PHP_EOL, $contents) as $line) {
             if (!empty($line)) {
