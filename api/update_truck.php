@@ -11,6 +11,9 @@ $truckData = json_decode($json, true);
 $particleId = $truckData['coreid'];
 $data = $truckData['data'];
 $latlon = explode(",", $data);
+
+file_put_contents('test', $data);
+
 $lat = $latlon[0];
 $lon = $latlon[1];
 
