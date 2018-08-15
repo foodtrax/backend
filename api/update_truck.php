@@ -50,9 +50,4 @@ $insertResult = $database->update('INSERT INTO `truck_locations` (`truck_id`, `l
     ]
 );
 
-echo json_encode([
-    ':truckId' => (int)$truckId,
-    ':lat' => (double)$lat,
-    ':lon' => (double)$lon,
-    ':datetime' => $truckData['published_at']
-]);
+echo print_r($insertResult);
