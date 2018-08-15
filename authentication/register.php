@@ -23,6 +23,8 @@ $database = new Database(
     $databaseCredentials['db_database']
 );
 
+$database->connect();
+
 // Hash the password we were given
 $password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 13]);
 
