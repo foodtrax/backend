@@ -23,9 +23,6 @@ $database = new Database(
 
 $database->connect();
 
-// Hash the password we were given
-$password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 13]);
-
 // Get the user's hashed password from the database
 $results = $database->query(
     'SELECT `password` FROM `users` WHERE `username` = :username',
@@ -41,8 +38,9 @@ if (count($results) === 0) {
 $dbPassword = $results[0]['password'];
 
 // If the passwords match, set the session
-echo $dbPassword . "..." . $password;
-if ($dbPassword === $password) {
+if (password_verify($password, $dbPassword)) {
     $_SESSION['name'] = $username;
     echo json_encode(['result' => true]);
+} else {
+    echo json_encode(['result' => false]);
 }
