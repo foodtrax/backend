@@ -62,11 +62,7 @@ class Database {
     {
         $statement = $this->databaseConnection->prepare($query);
 
-        foreach ($parameters as $key => $value) {
-            $statement->bindParam($key, $value);
-        }
-
-        $statement->execute();
+        $statement->execute($parameters);
 
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -75,16 +71,12 @@ class Database {
      * Update the database (INSERT, UPDATE, DELETE, etc)
      * @param string $query SQL query
      * @param array $parameters The parameters for the SQL update statement
-     * @return array True if the query succeeded, false otherwise.
+     * @return bool True if the query succeeded, false otherwise.
      */
     public function update(string $query, array $parameters)
     {
         $statement = $this->databaseConnection->prepare($query);
 
-        $statement->execute($parameters);
-
-        $statement->debugDumpParams();
-
-        return $statement->errorInfo();
+        return $statement->execute($parameters);
     }
 }
