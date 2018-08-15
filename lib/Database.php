@@ -62,11 +62,7 @@ class Database {
     {
         $statement = $this->databaseConnection->prepare($query);
 
-        foreach ($parameters as $key => $value) {
-            $statement->bindParam($key, $value);
-        }
-
-        $statement->execute();
+        $statement->execute($parameters);
 
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -81,10 +77,6 @@ class Database {
     {
         $statement = $this->databaseConnection->prepare($query);
 
-        foreach ($parameters as $key => $value) {
-            $statement->bindParam($key, $value);
-        }
-
-        return $statement->execute();
+        return $statement->execute($parameters);
     }
 }
