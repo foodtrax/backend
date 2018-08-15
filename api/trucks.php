@@ -2,6 +2,8 @@
 include '../lib/Database.php';
 include '../lib/Secrets.php';
 
+header("Access-Control-Allow-Origin: *");
+
 $databaseCredentials = (new Secrets())->readSecrets();
 $database = new Database(
     $databaseCredentials['db_user'],
