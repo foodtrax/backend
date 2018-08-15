@@ -24,3 +24,5 @@ foreach ($results as $truck) {
         'long' => $truck['long']
     ];
 }
+
+echo json_encode($trucks);
