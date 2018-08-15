@@ -46,7 +46,7 @@ $insertResult = $database->update('INSERT INTO `truck_locations` (`truck_id`, `l
         'truckId' => $truckId,
         'lat' => $lat,
         'lon' => $lon,
-        'datetime' => $truckData['published_at']
+        'datetime' => time()
     ]
 );
 

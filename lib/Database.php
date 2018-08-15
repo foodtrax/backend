@@ -75,7 +75,7 @@ class Database {
      * Update the database (INSERT, UPDATE, DELETE, etc)
      * @param string $query SQL query
      * @param array $parameters The parameters for the SQL update statement
-     * @return bool True if the query succeeded, false otherwise.
+     * @return array True if the query succeeded, false otherwise.
      */
     public function update(string $query, array $parameters)
     {
@@ -85,6 +85,6 @@ class Database {
             $statement->bindParam($key, $value);
         }
 
-        return $statement->execute();
+        return $statement->errorInfo();
     }
 }
