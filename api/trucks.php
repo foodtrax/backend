@@ -10,7 +10,7 @@ $database = new Database(
     $databaseCredentials['db_database']
 );
 
-$results = $database->query('SELECT * FROM `truck_locations_memory` AS tlm LEFT JOIN `truck_information` AS ti ON ti.truck_id=tlm.truck_id;');
+$results = $database->query('SELECT * FROM `truck_locations_memory` AS tlm LEFT JOIN `truck_information` AS ti ON ti.truck_id=tlm.truck_id;', []);
 $trucks = [];
 
 foreach ($results as $truck) {
