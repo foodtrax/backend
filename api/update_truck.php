@@ -41,7 +41,7 @@ $truckId = $results[0]['truck_id'];
 
 file_put_contents('/tmp/test2', print_r($results, true));
 
-$insertResult = $database->update('INSERT INTO `truck_locations` (`truck_id`, `lat`, `long`, `date`) VALUES (:truckId, :lat, :lon, UNIX_TIMESTAMP(:datetime))',
+$insertResult = $database->update('INSERT INTO `truck_locations` (`truck_id`, `lat`, `long`, `date`) VALUES (:truckId, :lat, :lon, FROM_UNIXTIME(:datetime))',
     [
         ':truckId' => (int)$truckId,
         ':lat' => (double)$lat,
