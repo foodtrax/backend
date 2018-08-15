@@ -12,7 +12,7 @@ $particleId = $truckData['coreid'];
 $data = $truckData['data'];
 $latlon = explode(",", $data);
 
-file_put_contents('test', print_r($truckData, true));
+file_put_contents('/tmp/test', print_r($truckData, true));
 
 $lat = $latlon[0];
 $lon = $latlon[1];
