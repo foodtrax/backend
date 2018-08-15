@@ -27,7 +27,7 @@ $database = new Database(
 
 $database->connect();
 
-$results = $database->query('SELECT * FROM `particle_to_truck` WHERE `particle_id` = :particle',
+$results = $database->query('SELECT * FROM `particle_to_truck` WHERE `particle_id` = ":particle"',
     [
         'particle' => $particleId
     ]
@@ -39,11 +39,14 @@ if (count($results) == 0) {
 
 $truckId = $results[0]['truck_id'];
 
-$insertResult = $database->update('INSERT INTO `truck_locations` (`truck_id`, `lat`, `long`) VALUES (:truckId, :lat, :lon)',
+file_put_contents('/tmp/test2', print_r($results, true));
+
+$insertResult = $database->update('INSERT INTO `truck_locations` (`truck_id`, `lat`, `long`) VALUES (:truckId, :lat, :lon, ":date")',
     [
         'truckId' => $truckId,
         'lat' => $lat,
-        'lon' => $lon
+        'lon' => $lon,
+        'date' => $truckData['published_at']
     ]
 );
 
