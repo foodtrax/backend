@@ -33,14 +33,14 @@ $results = $database->query('SELECT * FROM `particle_to_truck` WHERE `particle_i
 
 // If there is no valid particle, exit
 if (count($results) == 0) {
-    die(json_encode(['result' => "null"]));
+    die(json_encode(['result' => false]));
 }
 
 $truckId = $results[0]['truck_id'];
 
 if ($requestType === 'H') {
     $update = $database->update(
-        'UPDATE `truck_location_memory` SET `date`=NOW() WHERE `truck_id`=:id',
+        'UPDATE `truck_locations_memory` SET `date`=NOW() WHERE `truck_id`=:id',
         [
             ':id' => $truckId
         ]
