@@ -6,6 +6,8 @@
 include '../lib/Database.php';
 include '../lib/Secrets.php';
 
+session_start();
+
 header("Access-Control-Allow-Origin: *");
 
 if (!$_SESSION['id']) {
