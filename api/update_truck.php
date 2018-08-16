@@ -57,7 +57,7 @@ $insertResult = $database->update('INSERT INTO `truck_locations` (`truck_id`, `l
 
 // Update truck to say it is not offline.
 $updateResult = $database->update(
-    'UPDATE `truck_information` SET `offline`=0 WHERE `truck_id`=:id',
+    'UPDATE `truck_information` SET `offline`=0,`locationSetByWeb`=0 WHERE `truck_id`=:id',
     [
         ':id' => $truckId
     ]
