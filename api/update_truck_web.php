@@ -8,6 +8,8 @@ include '../lib/Secrets.php';
 
 session_start();
 
+header("Access-Control-Allow-Origin: *.foodtrax.io");
+
 $id = $_POST['truckid'];
 $name = $_POST['truckname'];
 $twitter = $_POST['twitter'];

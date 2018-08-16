@@ -8,7 +8,7 @@ include '../lib/Secrets.php';
 
 session_start();
 
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: *.foodtrax.io");
 
 $username = $_POST['username'];
 $email = $_POST['email'];

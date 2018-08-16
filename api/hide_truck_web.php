@@ -8,7 +8,7 @@ include '../lib/Secrets.php';
 
 session_start();
 
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: *.foodtrax.io");
 
 if (!$_SESSION['id']) {
     die("Invalid parameters");
@@ -28,6 +28,7 @@ $database = new Database(
 
 $database->connect();
 
+// Verify owner
 $checkTruckOwner = $database->query(
     'SELECT owner_id FROM `truck_information` WHERE `truck_id`= :truckid',
     [

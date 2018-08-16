@@ -6,7 +6,7 @@
 include '../lib/Database.php';
 include '../lib/Secrets.php';
 
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: *.foodtrax.io");
 
 // Connect to the database
 $databaseCredentials = (new Secrets())->readSecrets();
