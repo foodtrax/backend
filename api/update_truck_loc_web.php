@@ -14,7 +14,7 @@ if (!$_SESSION['id']) {
     die("Invalid parameters");
 }
 
-// Get the particle ID and event data (lat,lon)
+// Get the truckId and event data (lat,lon)
 $id = $_POST['truckId'];
 $lat = $_POST['lat'];
 $lon = $_POST['lon'];

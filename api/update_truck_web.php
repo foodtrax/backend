@@ -10,6 +10,9 @@ session_start();
 
 $id = $_POST['truckid'];
 $name = $_POST['truckname'];
+$twitter = $_POST['twitter'];
+$facebook = $_POST['facebook'];
+$website = $_POST['website'];
 $description = $_POST['truckdesc'];
 
 // Verify we have expected parameters
@@ -46,11 +49,14 @@ if ($truckOwner !== $_SESSION['id']) {
 }
 
 $updateTruckInformation = $database->update(
-    'UPDATE `truck_information` SET `name`=:name,`description`=:desc WHERE `truck_id`= :truckid',
+    'UPDATE `truck_information` SET `name`=:name,`description`=:desc, `twitter`=:twitter, `facebook`=:facebook, `website`=:website WHERE `truck_id`= :truckid',
     [
         ':name' => $name,
         ':desc' => $description,
-        ':truckid' => $id
+        ':truckid' => $id,
+        ':twitter' => $twitter,
+        ':facebook' => $facebook,
+        ':website' => $website
     ]
 );
 

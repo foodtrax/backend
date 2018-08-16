@@ -29,6 +29,8 @@ foreach ($results as $truck) {
             'name' => $truck['name'],
             'description' => $truck['description'],
             'twitter' => $truck['twitter'],
+            'facebook' => $truck['facebook'],
+            'website' => $truck['website'],
             'lat' => $truck['lat'],
             'long' => $truck['long']
         ];
