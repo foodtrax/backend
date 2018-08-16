@@ -56,7 +56,7 @@ $insertResult = $database->update('INSERT INTO `truck_locations` (`truck_id`, `l
 );
 
 $updateResult = $database->update(
-    'UPDATE `food_truck_information` SET `offline`=0 WHERE `truck_id`=:id',
+    'UPDATE `truck_information` SET `offline`=0 WHERE `truck_id`=:id',
     [
         ':id' => $truckId
     ]
