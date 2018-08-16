@@ -20,13 +20,15 @@ $results = $database->query('SELECT * FROM `truck_locations_memory` AS tlm LEFT 
 $trucks = [];
 
 foreach ($results as $truck) {
-    $trucks[] = [
-        'name' => $truck['name'],
-        'description' => $truck['description'],
-        'twitter' => $truck['twitter'],
-        'lat' => $truck['lat'],
-        'long' => $truck['long']
-    ];
+    if(!$truck['offline']) {
+        $trucks[] = [
+            'name' => $truck['name'],
+            'description' => $truck['description'],
+            'twitter' => $truck['twitter'],
+            'lat' => $truck['lat'],
+            'long' => $truck['long']
+        ];
+    }
 }
 
 echo json_encode($trucks);
