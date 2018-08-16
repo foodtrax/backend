@@ -1,8 +1,12 @@
 <?php
+/**
+ * @author Christopher Bitler
+ */
+
 include '../lib/Database.php';
 include '../lib/Secrets.php';
 
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: *.foodtrax.io");
 
 // Connect to the database
 $databaseCredentials = (new Secrets())->readSecrets();
@@ -25,6 +29,8 @@ foreach ($results as $truck) {
             'name' => $truck['name'],
             'description' => $truck['description'],
             'twitter' => $truck['twitter'],
+            'facebook' => $truck['facebook'],
+            'website' => $truck['website'],
             'lat' => $truck['lat'],
             'long' => $truck['long']
         ];

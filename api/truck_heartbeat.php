@@ -1,8 +1,12 @@
 <?php
+/**
+ * @author Christopher Bitler
+ */
+
 include '../lib/Database.php';
 include '../lib/Secrets.php';
 
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: *.foodtrax.io");
 
 $json = file_get_contents("php://input");
 
@@ -38,6 +42,7 @@ if (count($results) == 0) {
 
 $truckId = $results[0]['truck_id'];
 
+// Update based on event type
 if ($requestType === 'H') {
     $update = $database->update(
         'UPDATE `truck_locations_memory` SET `date`=NOW() WHERE `truck_id`=:id',
