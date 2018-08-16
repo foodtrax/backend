@@ -2,6 +2,8 @@
 include '../lib/Database.php';
 include '../lib/Secrets.php';
 
+session_start();
+
 header("Access-Control-Allow-Origin: *");
 
 if (!$_SESSION['id']) {
@@ -44,12 +46,11 @@ if ($truckOwner !== $_SESSION['id']) {
 $truckId = $results[0]['truck_id'];
 
 // Insert the location
-$insertResult = $database->update('INSERT INTO `truck_locations` (`truck_id`, `lat`, `long`, `date`) VALUES (:truckId, :lat, :lon, FROM_UNIXTIME(:datetime))',
+$insertResult = $database->update('INSERT INTO `truck_locations` (`truck_id`, `lat`, `long`, `date`) VALUES (:truckId, :lat, :lon, NOW())',
     [
         ':truckId' => (int)$truckId,
         ':lat' => (double)$lat,
-        ':lon' => (double)$lon,
-        ':datetime' => time()
+        ':lon' => (double)$lon
     ]
 );
 
