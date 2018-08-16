@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author Christopher Bitler
+ */
+
 include '../lib/Database.php';
 include '../lib/Secrets.php';
 
@@ -41,8 +45,6 @@ if (count($results) == 0) {
 }
 
 $truckId = $results[0]['truck_id'];
-
-$isTruckParkedForNight = getIsTruckParkedForNight($database, $truckId);
 
 // Insert the location
 $insertResult = $database->update('INSERT INTO `truck_locations` (`truck_id`, `lat`, `long`, `date`) VALUES (:truckId, :lat, :lon, NOW())',

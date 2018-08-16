@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author Christopher Bitler
+ */
+
 include '../lib/Database.php';
 include '../lib/Secrets.php';
 

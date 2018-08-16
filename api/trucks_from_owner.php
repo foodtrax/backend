@@ -23,16 +23,15 @@ $database->connect();
 $results = $database->query('SELECT * FROM `truck_locations_memory` AS tlm LEFT JOIN `truck_information` AS ti ON ti.truck_id=tlm.truck_id;', []);
 $trucks = [];
 
+$owner_id = $_GET['id'];
+
 foreach ($results as $truck) {
-    if(!$truck['offline']) {
-        $trucks[] = [
-            'name' => $truck['name'],
-            'description' => $truck['description'],
-            'twitter' => $truck['twitter'],
-            'lat' => $truck['lat'],
-            'long' => $truck['long']
-        ];
-    }
+    $trucks[] = [
+        'name' => $truck['name'],
+        'description' => $truck['description'],
+        'twitter' => $truck['twitter'],
+        'id' => $truck['truck_id']
+    ];
 }
 
 echo json_encode($trucks);
