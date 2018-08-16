@@ -33,7 +33,7 @@ $results = $database->query('SELECT * FROM `particle_to_truck` WHERE `particle_i
 
 // If there is no valid particle, exit
 if (count($results) == 0) {
-    die(json_encode(['result' => false]));
+    die(json_encode(['result' => "null"]));
 }
 
 $truckId = $results[0]['truck_id'];
