@@ -31,6 +31,7 @@ $database = new Database(
 
 $database->connect();
 
+// Verify that they are the owner
 $checkTruckOwner = $database->query(
     'SELECT owner_id FROM `truck_information` WHERE `truck_id`= :truckid',
     [
@@ -48,6 +49,7 @@ if ($truckOwner !== $_SESSION['id']) {
     die(json_encode(['result' => false]));
 }
 
+// Update truck information
 $updateTruckInformation = $database->update(
     'UPDATE `truck_information` SET `name`=:name,`description`=:desc, `twitter`=:twitter, `facebook`=:facebook, `website`=:website WHERE `truck_id`= :truckid',
     [
