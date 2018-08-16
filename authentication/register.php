@@ -4,6 +4,8 @@ include '../lib/Secrets.php';
 
 session_start();
 
+header("Access-Control-Allow-Origin: *");
+
 $username = $_POST['username'];
 $email = $_POST['email'];
 $truckList = $_POST['trucks'];
