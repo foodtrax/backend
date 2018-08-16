@@ -58,4 +58,12 @@ $insertResult = $database->update('INSERT INTO `truck_locations` (`truck_id`, `l
     ]
 );
 
-echo json_encode(['result' => $insertResult]);
+// Update truck to say it is not offline.
+$updateResult = $database->update(
+    'UPDATE `truck_information` SET `offline`=0 WHERE `truck_id`=:id',
+    [
+        ':id' => $truckId
+    ]
+);
+
+echo json_encode(['result' => $insertResult && $updateResult]);
