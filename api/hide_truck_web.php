@@ -47,10 +47,10 @@ if ($truckOwner !== $_SESSION['id']) {
 
 $truckId = $results[0]['truck_id'];
 
-// Insert the location
+// Update offline state to 1
 $insertResult = $database->update('UPDATE `truck_information` SET `offline`=1 WHERE `truck_id`=:truckId',
     [
-        ':truckId' => (int)$truckId,
+        ':truckId' => (int)$id,
     ]
 );
 
