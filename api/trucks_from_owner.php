@@ -11,7 +11,7 @@ session_start();
 header("Access-Control-Allow-Origin: *");
 
 if (!$_SESSION['id']) {
-    die('[]'); // Empty array
+    die('err'); // Empty array
 }
 
 $ownerId = $_SESSION['id'];
