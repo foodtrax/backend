@@ -8,6 +8,12 @@ include '../lib/Secrets.php';
 
 header("Access-Control-Allow-Origin: *");
 
+if (!$_SESSION['id']) {
+    die('[]'); // Empty array
+}
+
+$ownerId = $_SESSION['id'];
+
 // Connect to the database
 $databaseCredentials = (new Secrets())->readSecrets();
 $database = new Database(
@@ -20,10 +26,14 @@ $database = new Database(
 $database->connect();
 
 // Get the list of trucks and return them
-$results = $database->query('SELECT * FROM `truck_locations_memory` AS tlm LEFT JOIN `truck_information` AS ti ON ti.truck_id=tlm.truck_id;', []);
+$results = $database->query(
+    'SELECT * FROM `truck_locations_memory` AS tlm LEFT JOIN `truck_information` AS ti ON ti.truck_id=tlm.truck_id WHERE `owner_id`=:id;',
+    [
+        ':id' => $ownerId
+    ]
+);
 $trucks = [];
 
-$owner_id = $_GET['id'];
 
 foreach ($results as $truck) {
     $trucks[] = [
