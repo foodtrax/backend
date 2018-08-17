@@ -31,7 +31,7 @@ $database = new Database(
 $database->connect();
 
 $checkTruckOwner = $database->query(
-    'SELECT owner_id FROM `truck_information` WHERE `truck_id`= :truckid',
+    'SELECT truck_id, owner_id FROM `truck_information` WHERE `truck_id`= :truckid',
     [
         ':truckid' => $id
     ]
