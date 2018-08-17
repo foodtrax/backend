@@ -66,4 +66,4 @@ $updateResult = $database->update(
     ]
 );
 
-echo json_encode(['result' => $insertResult && $updateResult, ':id' => $truckId]);
+echo json_encode(['result' => $insertResult && $updateResult]);
