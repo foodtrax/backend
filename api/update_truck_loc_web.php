@@ -47,7 +47,7 @@ if ($truckOwner !== $_SESSION['id']) {
     die(json_encode(['result' => false]));
 }
 
-$truckId = $results[0]['truck_id'];
+$truckId = $checkTruckOwner[0]['truck_id'];
 
 // Insert the location
 $insertResult = $database->update('INSERT INTO `truck_locations` (`truck_id`, `lat`, `long`, `date`) VALUES (:truckId, :lat, :lon, NOW())',
