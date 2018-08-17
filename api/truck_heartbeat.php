@@ -15,7 +15,7 @@ $truckData = json_decode($json, true);
 
 // Get the particle ID and event data (lat,lon)
 $particleId = $truckData['coreid'];
-$requestType = $truckData['name'];
+$requestType = $truckData['event'];
 
 // Connect to the database
 $databaseCredentials = (new Secrets())->readSecrets();
