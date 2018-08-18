@@ -29,7 +29,7 @@ $database->connect();
 
 // Get the list of trucks and return them
 $results = $database->query(
-    'SELECT * FROM `truck_locations_memory` AS tlm LEFT JOIN `truck_information` AS ti ON ti.truck_id=tlm.truck_id WHERE `owner_id`=:id;',
+    'SELECT * FROM `truck_information` WHERE `owner_id`=:id;',
     [
         ':id' => $ownerId
     ]
