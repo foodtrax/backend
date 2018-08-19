@@ -11,11 +11,11 @@ session_start();
 header("Access-Control-Allow-Origin: *.foodtrax.io");
 
 $id = $_POST['truckid'];
-$name = $_POST['truckname'];
-$twitter = $_POST['twitter'];
-$facebook = $_POST['facebook'];
-$website = $_POST['website'];
-$description = $_POST['truckdesc'];
+$name = htmlspecialchars($_POST['truckname'], ENT_QUOTES);
+$twitter = htmlspecialchars($_POST['twitter'], ENT_QUOTES);
+$facebook = htmlspecialchars($_POST['facebook'], ENT_QUOTES);
+$website = htmlspecialchars($_POST['website'], ENT_QUOTES);
+$description = htmlspecialchars($_POST['truckdesc'], ENT_QUOTES);
 
 // Verify we have expected parameters
 if (!$id || !$name || !$description || !$_SESSION['id']) {
