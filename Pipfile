@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "==1.0.2"
+python-dotenv = "==0.9.1"
+"psycopg2" = "==2.7.5"
+sqlalchemy = "==1.2.12"
+flask-migrate = "==2.2.1"
+
+[dev-packages]
+
+[requires]
+# TODO Python 3.7 would be 🔥, because dataclasses.
+# We could build it ourselves or use ppa:deadsnakes/ppa
+python_version = "3.6"
